@@ -1,0 +1,29 @@
+div {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+    width: 50vw;
+}
+
+h1, p, ul {
+    text-align: center;
+}
+
+p:first-of-type {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+li {
+    list-style-type: none;
+}
+
+img {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px
+}
+
+

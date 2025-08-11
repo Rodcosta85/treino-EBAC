@@ -1,0 +1,85 @@
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* css reset */
+
+
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 50px;
+}
+
+
+#ul-module-three {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+/* pseudo-class */
+a:active {
+    color: green;
+    font-weight: bold;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+article {
+    background-color: lightgray;
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+    text-align: right;
+}
+
+aside {
+    width: 30%;
+}
+
+
+footer {
+    text-align: center;
+}
+
+/* pseudo-element */
+footer::before {
+    content: '©';
+}
