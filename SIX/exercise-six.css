@@ -1,0 +1,10 @@
+.tag {
+    font-weight: 700;
+}
+
+#game-over {
+    font-weight: 700;
+    background-color: red;
+    color: white;
+    padding: 5px;
+}
