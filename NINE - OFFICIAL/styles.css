@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-color: lightgray;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 22px;
+}
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 15rem;
+}
+
+#name, #last-name, #email, #add-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+}
+
+#name:focus, #last-name:focus, #email:focus {
+    outline: none;
+}
+
+#add-btn {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+#user-list {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    width: 15rem;
+}
+
+.list-and-btn {
+    background-color: lightblue;
+    border-radius: 5px;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.delete-btn {
+    background-color: rgb(235, 91, 91);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: white;
+    align-self: flex-end;
+}
