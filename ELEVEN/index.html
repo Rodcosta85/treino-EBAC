@@ -1,69 +1,85 @@
-<body class="page">
-    <button type="button" class="scroll-top">
-        <img class="scroll-top__icon" src="./arrow-up.svg" alt="uma seta para cima">
-    </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 11 - exercício</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
 
+<body class="page">
+    <button type="button" class="scroll-to-top">
+        <img src="./arrow-up.svg" alt="uma seta para cima" class="scroll-to-top__icon">
+    </button>
     <header class="header">
         <img class="header__logo" src="./random-logo-svg-vector.svg" alt="logo de uma companhia aleatória">
-        <nav class="nav">
+        <nav class="header__nav nav">
             <ul class="nav__list">
-                <li class="nav__item"><a class="nav__link" href="#home">Home</a></li>
-                <li class="nav__item"><a class="nav__link" href="#sobre-nos">Sobre nós</a></li>
-                <li class="nav__item"><a class="nav__link" href="#servicos">Serviços</a></li>
-                <li class="nav__item"><a class="nav__link" href="#depoimentos">Depoimentos</a></li>
-                <li class="nav__item"><a class="nav__link" href="#contato">Contato</a></li>
+                <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="#sobre-nos" class="nav__link">Sobre nós</a></li>
+                <li class="nav__item"><a href="#servicos" class="nav__link">Serviços</a></li>
+                <li class="nav__item"><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
+                <li class="nav__item"><a href="#contato" class="nav__link">Contato</a></li>
             </ul>
         </nav>
     </header>
-
-    <main class="sections">
-        <section class="section section--home" id="home">
-            <h1 class="section__title section__title--primary">HOME</h1>
+    <div class="main-content">
+        <section id="home" class="section">
+            <h1 class="section__title">HOME</h1>
             <h2 class="section__subtitle">Bem-vindo à Nova Era Digital</h2>
-            <p class="section__text">Nós transformamos ideias em experiências memoráveis...</p>
+            <p class="section__text">Nós transformamos ideias em experiências memoráveis. Nossa agência combina criatividade, estratégia e tecnologia para ajudar sua marca a se destacar no mercado.</p>
         </section>
-
-        <section class="section section--about" id="sobre-nos">
+        <section id="sobre-nos" class="section">
             <h1 class="section__title">SOBRE NÓS</h1>
-            <p class="section__text">Somos uma agência apaixonada por inovação...</p>
+            <p class="section__text">Somos uma agência apaixonada por inovação. Acreditamos que cada projeto é uma oportunidade única de criar impacto real. Nossos valores são transparência, colaboração e excelência. Trabalhamos lado a lado com nossos clientes para transformar desafios em resultados.</p>
         </section>
-
-        <section class="section section--services" id="servicos">
+        <section id="servicos" class="section services">
             <h1 class="section__title">SERVIÇOS</h1>
-            <div class="services">
-                <div class="services__item">
-                    <h3 class="services__title">Design Gráfico</h3>
-                    <p class="services__text">Criação de identidades visuais...</p>
+            <div class="services__list">
+                <div class="service-card">
+                    <h3 class="service-card__title">Design Gráfico</h3>
+                    <p class="service-card__text">Criação de identidades visuais, materiais impressos e digitais.</p>
                 </div>
-                <div class="services__item">
-                    <h3 class="services__title">Desenvolvimento Web</h3>
-                    <p class="services__text">Sites modernos, responsivos...</p>
+                <div class="service-card">
+                    <h3 class="service-card__title">Desenvolvimento Web</h3>
+                    <p class="service-card__text">Sites modernos, responsivos e otimizados.</p>
                 </div>
-                <!-- outros serviços -->
+                <div class="service-card">
+                    <h3 class="service-card__title">Branding</h3>
+                    <p class="service-card__text">Posicionamento de marca e construção de identidade.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-card__title">Marketing Digital</h3>
+                    <p class="service-card__text">Estratégias para aumentar sua presença online.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-card__title">UX/UI Design</h3>
+                    <p class="service-card__text">Experiências digitais centradas no usuário.</p>
+                </div>
             </div>
         </section>
-
-        <section class="section section--testimonials" id="depoimentos">
+        <section id="depoimentos" class="section testimonials">
             <h1 class="section__title">DEPOIMENTOS</h1>
-            <ul class="testimonials">
-                <li class="testimonials__item">“A equipe conseguiu traduzir exatamente...” – <i>Ana Souza</i></li>
-                <li class="testimonials__item">“Profissionais comprometidos...” – <i>Carlos Mendes</i></li>
-                <li class="testimonials__item">“Graças à estratégia digital...” – <i>Júlia Ferreira</i></li>
+            <ul class="testimonials__list">
+                <li class="testimonials__item">“A equipe conseguiu traduzir exatamente o que eu queria para o site da minha empresa. O resultado superou as expectativas.” – <i class="testimonials__author">Ana Souza</i></li>
+                <li class="testimonials__item">“Profissionais comprometidos, criativos e sempre prontos para atender. Recomendo de olhos fechados.” – <i class="testimonials__author">Carlos Mendes</i></li>
+                <li class="testimonials__item">“Graças à estratégia digital criada por eles, nosso faturamento cresceu de forma consistente.” – <i class="testimonials__author">Júlia Ferreira</i></li>
             </ul>
         </section>
-
-        <section class="section section--contact" id="contato">
+        <section id="contato" class="section contact">
             <h1 class="section__title">CONTATO</h1>
             <form class="form">
-                <input class="form__input" type="text" placeholder="name">
-                <input class="form__input" type="email" placeholder="email">
-                <input class="form__input" type="number" placeholder="cellphone number">
-                <input class="form__input" type="text" placeholder="address">
+                <input type="text" class="form__input" placeholder="name">
+                <input type="email" class="form__input" placeholder="email">
+                <input type="number" class="form__input" placeholder="cellphone number">
+                <input type="text" class="form__input" placeholder="address">
                 <textarea class="form__textarea" placeholder="Digite sua mensagem..."></textarea>
                 <div class="form__actions">
-                    <button type="submit" class="form__button">Enviar</button>
+                    <button type="submit" class="button button--primary">enviar</button>
                 </div>
             </form>
         </section>
-    </main>
+    </div>
 </body>
+<script src="script.js"></script>
+</html>
