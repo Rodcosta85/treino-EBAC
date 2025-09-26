@@ -1,0 +1,27 @@
+@use 'variaveis';
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin textarea-states {
+    &:focus {
+        border-color: variaveis.$azul-escuro-total;
+        transform: translateY(-2px);
+    }
+
+    &:disabled {
+        background: #f5f7fb;
+        color: variaveis.$outro-cinza;
+        border-color: #e6e9ef;
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+
+    &::placeholder {
+        color: variaveis.$outro-cinza;
+        font-weight: 400;
+        opacity: 1;
+    }
+}

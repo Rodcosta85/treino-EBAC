@@ -1,0 +1,130 @@
+@use 'base';
+@use 'variaveis';
+@use 'mixins';
+@use 'layout';
+@use 'components';
+
+
+/* RESET */
+* {
+    margin: base.$margin;
+    padding: base.$padding;
+    box-sizing: base.$box-sizing;
+    font-family: variaveis.$font-family;
+}
+
+
+.header {
+    @include mixins.flex;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background: variaveis.$branco-full;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header__logo {
+    width: 6rem;
+}
+
+.main-content {
+    @include mixins.flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.section {
+    width: 85%;
+    max-width: 1100px;
+    padding: 3rem 2rem;
+    background: variaveis.$branco-full;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.services__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.testimonials__item {
+    list-style: none;
+    background: variaveis.$off-white;
+    padding: 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.section__title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111;
+    border-left: 5px solid variaveis.$azul-escuro-total;
+    padding-left: 0.8rem;
+}
+
+.section__subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: variaveis.$preto-leve;
+}
+
+.section__text {
+    font-size: variaveis.$font-size;
+    color: variaveis.$cinza-concreto;
+}
+
+.service-card__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: variaveis.$azul-escuro-total;
+}
+
+.service-card__text {
+    font-size: variaveis.$font-size;
+    color: variaveis.$cinza-concreto;
+}
+
+.testimonials__author {
+    font-style: normal;
+}
+
+.form__actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 767px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .testimonials__list {
+        gap: 1rem;
+    }
+}
+
+/* Compact variant (modifier) */
+.form__textarea--small {
+    min-height: 100px;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+}
