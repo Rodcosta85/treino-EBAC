@@ -1,0 +1,67 @@
+/* Cores Customizadas */
+        :root {
+            --cor-primaria: #ffc107; /* Amarelo/Dourado - Destaque (Bootstrap Warning/Yellow) */
+            --cor-fundo: #111827; /* Quase preto */
+            --cor-secundaria: #1f2937; /* Cinza Escuro */
+        }
+
+        /* Estilos Globais */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--cor-secundaria) !important;
+        }
+        .nav-link:hover, .navbar-brand:hover {
+            color: var(--cor-primaria) !important;
+        }
+        .navbar-toggler {
+            border-color: var(--cor-primaria);
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(255, 193, 7)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* Cor de Destaque */
+        .btn-primary-custom {
+            background-color: var(--cor-primaria);
+            border-color: var(--cor-primaria);
+            color: #111827; /* Texto escuro no botão de destaque */
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn-primary-custom:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+
+        /* Seções */
+        .section-padding { padding: 80px 0; }
+        .bg-dark-custom { background-color: var(--cor-fundo); }
+        .bg-secondary-custom { background-color: var(--cor-secundaria); }
+
+        /* Card de Serviço */
+        .service-card {
+            background-color: var(--cor-fundo); /* Fundo mais escuro para contraste */
+            border: 1px solid var(--cor-primaria);
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(255, 193, 7, 0.2);
+        }
+
+        /* Logo */
+        #logo-text {
+            color: var(--cor-primaria);
+        }
+
+        /* Carousel Customizado */
+        .carousel-item p {
+            line-height: 1.6;
+        }

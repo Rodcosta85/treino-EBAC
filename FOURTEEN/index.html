@@ -1,12 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 14 - Bootstrap</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!-- BARRA DE NAVEGAÇÃO BOOTSTRAP -->
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark shadow-lg">
+            <div class="container">
+                <!-- LOGO/NOME -->
+                <a class="navbar-brand fs-4 fw-bold" href="#home">
+                    THE <span id="logo-text">CUT</span>
+                </a>
+
+                <!-- BOTÃO TOGGLER -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- LINKS ATUALIZADOS -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-bold" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#sobre-nos">Sobre Nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#depoimentos">Depoimentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#contato">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SEÇÃO HOME (HERO SIMPLES) -->
+        <section id="home" class="section-padding bg-dark-custom text-center vh-100 d-flex align-items-center justify-content-center">
+            <div class="container px-4">
+                <h1 class="display-3 fw-bolder mb-3 text-white">
+                    Estilo e Precisão em um só lugar.
+                </h1>
+                <p class="lead mb-5 text-secondary">
+                    O corte que você precisa, com a qualidade que você merece. Agende seu horário hoje mesmo.
+                </p>
+                <!-- Botão de Destaque -->
+                <a href="#contato" class="btn btn-primary-custom btn-lg rounded-pill shadow-lg">
+                    Agende Agora
+                </a>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO SOBRE NÓS (NOVA) -->
+        <section id="sobre-nos" class="section-padding bg-secondary-custom">
+            <div class="container text-center">
+                <h2 class="text-center fw-bold mb-4 text-primary-custom">Quem Somos</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="lead text-white-50 mb-4">
+                            No "THE CUT", cada corte é uma obra de arte. Combinamos a tradição da barbearia clássica com as últimas inovações em estilo. Nossa missão é simples: oferecer a melhor experiência e o melhor visual.
+                        </p>
+                        <p class="text-secondary small">
+                            Nossa equipe de especialistas está pronta para cuidar da sua barba e cabelo com atenção e precisão, garantindo que você saia não apenas com um corte, mas com uma declaração de estilo.
+                        </p>
+                        <a href="#servicos" class="btn btn-outline-warning mt-3 rounded-pill">Ver Nossos Serviços</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SERVIÇOS SIMPLIFICADA (CARDS) -->
+        <section id="servicos" class="section-padding bg-dark-custom">
+            <div class="container">
+                <h2 class="text-center fw-bold mb-5 text-primary-custom">Nossos Serviços Principais</h2>
+                
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    
+                    <!-- Serviço 1: Corte com Tesoura -->
+                    <div class="col">
+                        <div class="service-card h-100 p-4 text-center">
+                            <div class="fs-1 mb-3 text-primary-custom">✂️</div>
+                            <h3 class="fs-4 fw-semibold text-white">Corte com Tesoura</h3>
+                            <p class="text-secondary small mb-0">Técnicas clássicas para um visual definido e elegante.</p>
+                        </div>
+                    </div>
+
+                    <!-- Serviço 2: Barba Completa -->
+                    <div class="col">
+                        <div class="service-card h-100 p-4 text-center">
+                            <div class="fs-1 mb-3 text-primary-custom">💈</div>
+                            <h3 class="fs-4 fw-semibold text-white">Barba com Navalha</h3>
+                            <p class="text-secondary small mb-0">Barbear tradicional com toalha quente e finalização premium.</p>
+                        </div>
+                    </div>
+
+                    <!-- Serviço 3: Serviço Completo -->
+                    <div class="col">
+                        <div class="service-card h-100 p-4 text-center">
+                            <div class="fs-1 mb-3 text-primary-custom">👑</div>
+                            <h3 class="fs-4 fw-semibold text-white">Combo Cabelo & Barba</h3>
+                            <p class="text-secondary small mb-0">O pacote completo para uma transformação total do seu visual.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO DEPOIMENTOS (NOVA) -->
+        <section id="depoimentos" class="section-padding bg-secondary-custom">
+            <div class="container text-center">
+                <h2 class="text-center fw-bold mb-5 text-primary-custom">Opinião dos Clientes</h2>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner p-5 rounded shadow bg-dark-custom">
+                                
+                                <div class="carousel-item active">
+                                    <p class="fs-5 fst-italic text-white-50">"O melhor serviço da cidade, sem dúvida! O corte ficou impecável e o atendimento é excelente. Profissionais de alto nível."</p>
+                                    <p class="fw-bold text-primary-custom mt-3">- João V. S.</p>
+                                </div>
+                                
+                                <div class="carousel-item">
+                                    <p class="fs-5 fst-italic text-white-50">"Finalmente encontrei um lugar que entende de barba. Ritual completo e relaxante. Voltarei sempre!"</p>
+                                    <p class="fw-bold text-primary-custom mt-3">- Ricardo L. M.</p>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <p class="fs-5 fst-italic text-white-50">"Ambiente top e profissionais de primeira. O combo cabelo e barba é a melhor pedida em termos de custo-benefício."</p>
+                                    <p class="fw-bold text-primary-custom mt-3">- Pedro A. D.</p>
+                                </div>
+
+                            </div>
+                            
+                            <!-- Controles -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Próximo</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SEÇÃO CONTATO (FORMULÁRIO) -->
+        <section id="contato" class="section-padding bg-dark-custom">
+            <div class="container">
+                <h2 class="text-center fw-bold mb-5 text-primary-custom">Fale Conosco</h2>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="bg-secondary-custom p-4 p-md-5 rounded shadow">
+                            <form onsubmit="event.preventDefault(); alert('Agendamento/Mensagem recebida! Entraremos em contato em breve.');">
+                                
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label text-white">Nome</label>
+                                    <input type="text" class="form-control bg-dark text-white border-secondary-subtle" id="nome" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label text-white">E-mail</label>
+                                    <input type="email" class="form-control bg-dark text-white border-secondary-subtle" id="email" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="mensagem" class="form-label text-white">Mensagem / Serviço Desejado</label>
+                                    <textarea class="form-control bg-dark text-white border-secondary-subtle" id="mensagem" rows="3" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary-custom w-100 rounded-pill">
+                                    Enviar e Agendar
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <p class="text-secondary mb-0">Rua da Barbearia, 123 - Centro, SP</p>
+                            <p class="fw-semibold text-white">(11) 98765-4321</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-center p-3 border-top border-warning border-opacity-50">
+        <div class="container">
+            <p class="text-secondary small mb-0">
+                &copy; 2025 The Cut Barbearia Premium. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS CDN (Necessário para o Navbar Toggler e Carousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>
