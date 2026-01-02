@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "nome": "Ração Premium para Cães Adultos",
+        "categoria": "Alimentação",
+        "preco": 189.90,
+        "estoque": 45,
+        "unidade": "15kg"
+    },
+    {
+        "id": 2,
+        "nome": "Arranhador para Gatos com Nicho",
+        "categoria": "Brinquedos e Acessórios",
+        "preco": 245.00,
+        "estoque": 12,
+        "unidade": "Unidade"
+    },
+    {
+        "id": 3,
+        "nome": "Shampoo Hipoalergênico para Pets",
+        "categoria": "Higiene",
+        "preco": 42.50,
+        "estoque": 30,
+        "unidade": "500ml"
+    },
+    {
+        "id": 4,
+        "nome": "Coleira Peitoral Ergonômica G",
+        "categoria": "Passeio",
+        "preco": 85.90,
+        "estoque": 20,
+        "unidade": "Unidade"
+    },
+    {
+        "id": 5,
+        "nome": "Areia Sanitária Sílica",
+        "categoria": "Higiene",
+        "preco": 59.90,
+        "estoque": 60,
+        "unidade": "1.8kg"
+    },
+    {
+        "id": 6,
+        "nome": "Petisco Dental Care para Cães",
+        "categoria": "Alimentação",
+        "preco": 15.00,
+        "estoque": 150,
+        "unidade": "Pacote 70g"
+    },
+    {
+        "id": 7,
+        "nome": "Aquário de Vidro Retangular",
+        "categoria": "Aquarismo",
+        "preco": 120.00,
+        "estoque": 5,
+        "unidade": "20 Litros"
+    },
+    {
+        "id": 8,
+        "nome": "Cama Soft de Inverno P",
+        "categoria": "Conforto",
+        "preco": 110.00,
+        "estoque": 8,
+        "unidade": "Unidade"
+    }
+]
