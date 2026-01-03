@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+    --color-transp-black: rgba(0, 0, 0, 0.54);
+}

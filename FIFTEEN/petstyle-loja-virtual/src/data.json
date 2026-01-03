@@ -5,7 +5,8 @@
         "categoria": "Alimentação",
         "preco": 189.90,
         "estoque": 45,
-        "unidade": "15kg"
+        "unidade": "15kg",
+        "image": "/dog-food.jpg"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "categoria": "Brinquedos e Acessórios",
         "preco": 245.00,
         "estoque": 12,
-        "unidade": "Unidade"
+        "unidade": "Unidade",
+        "image": "/cat-toy.jpg"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "categoria": "Higiene",
         "preco": 42.50,
         "estoque": 30,
-        "unidade": "500ml"
+        "unidade": "500ml",
+        "image": "/shampoo.jpg"
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "categoria": "Passeio",
         "preco": 85.90,
         "estoque": 20,
-        "unidade": "Unidade"
+        "unidade": "Unidade",
+        "image": "/dog-harness.jpg"
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "categoria": "Higiene",
         "preco": 59.90,
         "estoque": 60,
-        "unidade": "1.8kg"
+        "unidade": "1.8kg",
+        "image": "/litter-box.jpg"
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "categoria": "Alimentação",
         "preco": 15.00,
         "estoque": 150,
-        "unidade": "Pacote 70g"
+        "unidade": "Pacote 70g",
+        "image": "/dog-treat.jpg"
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "categoria": "Aquarismo",
         "preco": 120.00,
         "estoque": 5,
-        "unidade": "20 Litros"
+        "unidade": "20 Litros",
+        "image": "/aquarium.jpg"
     },
     {
         "id": 8,
@@ -61,6 +68,7 @@
         "categoria": "Conforto",
         "preco": 110.00,
         "estoque": 8,
-        "unidade": "Unidade"
+        "unidade": "Unidade",
+        "image": "/dog-bed.jpg"
     }
 ]
