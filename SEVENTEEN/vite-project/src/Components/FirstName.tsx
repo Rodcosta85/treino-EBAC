@@ -1,0 +1,44 @@
+import React from "react";
+
+interface Props {
+  value: string,
+  isEmpty: boolean,
+  firstChange: any
+}
+
+const FirstName: React.FC<Props> = ({ value, firstChange, isEmpty }) => {
+
+  const handleChange = (e: any) => {
+    firstChange(e.target.value);
+  }
+
+
+  return (
+    <div className="h-min">
+      <div className='mr-4 flex flex-col'>
+        <label
+          htmlFor="first-name"
+          className='text-[14px] text-gray-500 font-medium'>First Name<span className='text-mediumGreen font-bold'>*</span></label>
+        <input
+          id="first-name"
+          type="text"
+          value={value}
+          className={`w-134 h-25 border-[0.5px] rounded-[10px] mt-3 p-5
+          ${isEmpty ?
+              'border-red-500 focus:outline-red-500'
+              :
+              'border-gray-400 mb-5 focus:outline-green-800 focus:bg-green-100'
+            }`}
+          onChange={handleChange}
+        />
+      </div>
+      <p className={`text-[13px] font-medium mt-2 mb-6 
+          ${isEmpty ? 'block text-red-500' : 'hidden'}`}>
+        This field is required
+      </p>
+    </div>
+
+  )
+}
+
+export default FirstName;
