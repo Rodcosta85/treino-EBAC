@@ -18,7 +18,7 @@ const FirstName: React.FC<Props> = ({ value, firstChange, isEmpty }) => {
       <div className='mr-4 flex flex-col'>
         <label
           htmlFor="first-name"
-          className='text-[14px] text-gray-500 font-medium'>First Name<span className='text-mediumGreen font-bold'>*</span></label>
+          className='text-[14px] text-gray-500 font-medium'>Nome do Item<span className='text-mediumGreen font-bold'>*</span></label>
         <input
           id="first-name"
           type="text"
@@ -34,7 +34,7 @@ const FirstName: React.FC<Props> = ({ value, firstChange, isEmpty }) => {
       </div>
       <p className={`text-[13px] font-medium mt-2 mb-6 
           ${isEmpty ? 'block text-red-500' : 'hidden'}`}>
-        This field is required
+        Esse campo é necessário
       </p>
     </div>
 

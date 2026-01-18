@@ -1,9 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
+
+import Chevron from './assets/chevron-down.svg';
 
 import FirstName from './Components/FirstName';
 import Message from './Components/Message';
 import Price from './Components/Price';
+import ProductCard from './Components/ProductCard';
 
+interface Product {
+  id: number,
+  first: string,
+  price: string,
+  message: string
+}
 
 function App() {
 
@@ -40,9 +49,27 @@ function App() {
     setIsMessageEmpty(isMessageEmptyNow);
     setIsPriceEmpty(isPriceEmptyNow);
 
+    // define o que o newProduct vai ser, usando as variaveis de estado dos campos do form
+    const newProduct = {
+      id: Date.now(),
+      first,
+      price,
+      message
+    }
+
+    // altera as infos de product com o que já tinhamos (prev, termo do react) e com as informações novas
+    setProducts(prev => [...prev, newProduct])
   };
 
-  const [products, setProducts] = useState<string[]>([]);
+  useEffect(() => {
+      setLoading(true);
+      setTimeout(() => {
+        
+      })
+  }, [])
+
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true)
   const [accordion, setAccordion] = useState<boolean>(false);
 
   const handleAccordion = (e: any) => {
@@ -63,16 +90,19 @@ function App() {
       </header>
 
       <main className='w-full pt-8 pb-8 pl-10 pr-10 flex justify-center'>
-        <div className='w-276 flex flex-col justify-between'>
+        <div className='w-276 flex flex-col justify-between gap-10'>
 
-
+          {/* titlo + form */}
           <div className='flex flex-col justify-center gap-10 relative'>
-            <button onClick={handleAccordion} className='cursor-pointer'>
-              Adicione um produto a lista usando o form abaixo ⬇️
+            <button 
+            onClick={handleAccordion} 
+            className='cursor-pointer flex items-center justify-center gap-2'>
+              Adicione um produto a lista usando o form abaixo
+              <img src={Chevron} alt="" className={`transition duration-200 ease-in-out ${accordion ? 'transform rotate-180' : ''}`} />
             </button>
 
             {/* div que eu vou tornar um acordeão */}
-            <div className={`bg-white absolute top-full left-1/2 -translate-x-1/2
+            <div className={`p-4 rounded-3xl border border-blue-400 bg-white absolute top-full left-1/2 -translate-x-1/2
             flex flex-col gap-4 transition-all duration-200
             ${accordion ? 'opacity-100 translate-y-4' : 'opacity-0 pointer-events-none'}`
             }>
@@ -87,7 +117,7 @@ function App() {
                 />
 
                 <Price
-                  value={first}
+                  value={price}
                   priceChange={handlePriceChange}
                   isEmpty={isPriceEmpty}
                 />
@@ -108,6 +138,10 @@ function App() {
             </div>
           </div>
 
+          {/* grid para os cards de produto */}
+          <div className='grid grid-cols-2 gap-8'>
+            <ProductCard products={products} />
+          </div>
 
         </div>
 

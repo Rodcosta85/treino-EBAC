@@ -18,7 +18,7 @@ const Message: React.FC<Props> = ({ value, messageChange, isEmpty }) => {
                 <label
                     htmlFor="textarea"
                     className='text-[14px] text-gray-500 font-medium'>
-                    Message
+                    Descrição do item
                     <span className='text-green-800 font-bold'>*</span>
                 </label>
                 <textarea
@@ -36,7 +36,7 @@ const Message: React.FC<Props> = ({ value, messageChange, isEmpty }) => {
             </div>
             <p className={`text-[13px] font-medium mt-2 mb-6 
                 ${isEmpty ? 'block text-red-500' : 'hidden'}`}>
-                This field is required
+                Esse campo é necessário
             </p>
 
         </>
