@@ -19,7 +19,7 @@ const Message: React.FC<Props> = ({ value, messageChange, isEmpty }) => {
                     htmlFor="textarea"
                     className='text-[14px] text-gray-500 font-medium'>
                     Descrição do item
-                    <span className='text-green-800 font-bold'>*</span>
+                    <span className='font-bold'>*</span>
                 </label>
                 <textarea
                     id="textarea"
@@ -28,7 +28,7 @@ const Message: React.FC<Props> = ({ value, messageChange, isEmpty }) => {
                     ${isEmpty ?
                             'border-red-500 focus:outline-red-500'
                             :
-                            'border-gray-400 mb-5 focus:outline-green-800 focus:bg-green-100'
+                            'border-gray-400 mb-5 focus:outline-blue-800 focus:bg-blue-100'
                         }`}
 
                     onChange={handleChange}>
@@ -38,7 +38,6 @@ const Message: React.FC<Props> = ({ value, messageChange, isEmpty }) => {
                 ${isEmpty ? 'block text-red-500' : 'hidden'}`}>
                 Esse campo é necessário
             </p>
-
         </>
     )
 

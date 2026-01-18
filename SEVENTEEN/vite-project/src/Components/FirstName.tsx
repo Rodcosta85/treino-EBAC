@@ -27,7 +27,7 @@ const FirstName: React.FC<Props> = ({ value, firstChange, isEmpty }) => {
           ${isEmpty ?
               'border-red-500 focus:outline-red-500'
               :
-              'border-gray-400 mb-5 focus:outline-green-800 focus:bg-green-100'
+              'border-gray-400 mb-5 focus:outline-blue-800 focus:bg-blue-100'
             }`}
           onChange={handleChange}
         />

@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 import Chevron from './assets/chevron-down.svg';
 
@@ -6,6 +6,7 @@ import FirstName from './Components/FirstName';
 import Message from './Components/Message';
 import Price from './Components/Price';
 import ProductCard from './Components/ProductCard';
+import Header from './Components/Header';
 
 interface Product {
   id: number,
@@ -49,6 +50,8 @@ function App() {
     setIsMessageEmpty(isMessageEmptyNow);
     setIsPriceEmpty(isPriceEmptyNow);
 
+    if (isFirstNameEmptyNow || isPriceEmptyNow || isMessageEmptyNow) return;
+
     // define o que o newProduct vai ser, usando as variaveis de estado dos campos do form
     const newProduct = {
       id: Date.now(),
@@ -59,33 +62,55 @@ function App() {
 
     // altera as infos de product com o que já tinhamos (prev, termo do react) e com as informações novas
     setProducts(prev => [...prev, newProduct])
+    localStorage.setItem('products', JSON.stringify([...products, newProduct]))
   };
 
-  useEffect(() => {
-      setLoading(true);
-      setTimeout(() => {
-        
-      })
-  }, [])
-
-  const [products, setProducts] = useState<Product[]>([]);
+  // essa função roda uma vez
+  const [products, setProducts] = useState<Product[]>(() => {
+    try {
+      const stored = localStorage.getItem('products');
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
   const [loading, setLoading] = useState<boolean>(true)
   const [accordion, setAccordion] = useState<boolean>(false);
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
+  const handleToggle = () => {
+    setToggleMenu(prevState => !prevState);
+  }
 
   const handleAccordion = (e: any) => {
     e.preventDefault();
     setAccordion(prevState => !prevState);
   }
 
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
+
   return (
     <>
       <header className='w-full pt-8 pb-8 pl-10 pr-10 flex justify-center border-b border-black'>
         <div className='w-276 flex justify-between'>
           <h1>
-            <span>THE </span>
+            <span className='italic font-bold text-[20px]'>THE </span>
             clothing store
           </h1>
-          <button className='w-8 h-8 border-black border cursor-pointer'></button>
+
+
+          {/* div que tem o botão e o dropdown no header */}
+          <Header 
+          handleToggle={handleToggle}
+          toggleMenu={toggleMenu}
+          products={products}
+          />
+          {/* div que tem o botão e o dropdown no header */}
+
+
+
         </div>
       </header>
 
@@ -94,9 +119,9 @@ function App() {
 
           {/* titlo + form */}
           <div className='flex flex-col justify-center gap-10 relative'>
-            <button 
-            onClick={handleAccordion} 
-            className='cursor-pointer flex items-center justify-center gap-2'>
+            <button
+              onClick={handleAccordion}
+              className='cursor-pointer flex items-center justify-center gap-2'>
               Adicione um produto a lista usando o form abaixo
               <img src={Chevron} alt="" className={`transition duration-200 ease-in-out ${accordion ? 'transform rotate-180' : ''}`} />
             </button>
