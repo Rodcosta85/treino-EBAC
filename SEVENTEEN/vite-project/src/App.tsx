@@ -1,40 +1,56 @@
 import { useState, useEffect } from 'react'
 
+import type { Product } from './types/typings.ts'
+
 import Chevron from './assets/chevron-down.svg';
 
 import FirstName from './Components/FirstName';
 import Message from './Components/Message';
 import Price from './Components/Price';
-import ProductCard from './Components/ProductCard';
+import MappingCards from './Components/Card/MappingCards';
 import Header from './Components/Header';
 
-interface Product {
-  id: number,
-  first: string,
-  price: string,
-  message: string
-}
+const mockProducts: Product[] = [
+  {
+    id: 1,
+    first: 'Produto A',
+    price: '100',
+    message: 'Descrição',
+    image: 'https://...'
+  }
+]
 
 function App() {
-
-  // FIRST NAME LOGIC
   const [first, setFirst] = useState('');
   const [isFirstNameEmpty, setIsFirstNameEmpty] = useState(false);
+  const [price, setPrice] = useState('');
+  const [isPriceEmpty, setIsPriceEmpty] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isMessageEmpty, setIsMessageEmpty] = useState(false);
+  const [products, setProducts] = useState<Product[]>(() => {
+    try {
+      const stored = localStorage.getItem('products');
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [loading, setLoading] = useState<boolean>(true)
+  const [accordion, setAccordion] = useState<boolean>(false);
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
+
+
+  // validações
   const handleFirstNameChange = (value: string) => {
     setFirst(value);
     setIsFirstNameEmpty(value.trim() === '');
   };
-
-  const [price, setPrice] = useState('');
-  const [isPriceEmpty, setIsPriceEmpty] = useState(false);
   const handlePriceChange = (value: string) => {
     setPrice(value);
     setIsPriceEmpty(value.trim() === '');
   };
 
-
-  const [message, setMessage] = useState('');
-  const [isMessageEmpty, setIsMessageEmpty] = useState(false);
   const handleMessageChange = (value: string) => {
     setMessage(value);
     setIsMessageEmpty(value.trim() === '');
@@ -57,39 +73,46 @@ function App() {
       id: Date.now(),
       first,
       price,
-      message
+      message,
+      image: 'https://via.placeholder.com/300'
     }
 
     // altera as infos de product com o que já tinhamos (prev, termo do react) e com as informações novas
     setProducts(prev => [...prev, newProduct])
     localStorage.setItem('products', JSON.stringify([...products, newProduct]))
   };
+  // validações
 
-  // essa função roda uma vez
-  const [products, setProducts] = useState<Product[]>(() => {
-    try {
-      const stored = localStorage.getItem('products');
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  });
-  const [loading, setLoading] = useState<boolean>(true)
-  const [accordion, setAccordion] = useState<boolean>(false);
-  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  
 
+
+
+  // toggle do dropdown
   const handleToggle = () => {
     setToggleMenu(prevState => !prevState);
   }
 
+  // toggle do acordeão/form
   const handleAccordion = (e: any) => {
     e.preventDefault();
     setAccordion(prevState => !prevState);
   }
 
+  // guarda os produtos adicionados no localStorage, tirando assim da sessionStorage
   useEffect(() => {
     localStorage.setItem('products', JSON.stringify(products));
   }, [products]);
+
+
+  useEffect(() => {
+  setLoading(true)
+
+  setTimeout(() => {
+    setProducts(mockProducts)
+    setLoading(false)
+  }, 2000)
+}, [])
+
 
   return (
     <>
@@ -102,10 +125,10 @@ function App() {
 
 
           {/* div que tem o botão e o dropdown no header */}
-          <Header 
-          handleToggle={handleToggle}
-          toggleMenu={toggleMenu}
-          products={products}
+          <Header
+            handleToggle={handleToggle}
+            toggleMenu={toggleMenu}
+            products={products}
           />
           {/* div que tem o botão e o dropdown no header */}
 
@@ -163,10 +186,13 @@ function App() {
             </div>
           </div>
 
-          {/* grid para os cards de produto */}
-          <div className='grid grid-cols-2 gap-8'>
-            <ProductCard products={products} />
-          </div>
+          {loading ? (
+            <p className="text-center font-medium">Carregando...</p>
+          ) : (
+            <div className="grid grid-cols-2 gap-8">
+              <MappingCards products={products} />
+            </div>
+          )}
 
         </div>
 
