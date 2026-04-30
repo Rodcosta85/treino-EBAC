@@ -13,7 +13,7 @@ const List: React.FC<ListProps> = ({ roundNumber }) => {
 
     return (
         <div className={`${roundNumber === 100 ? 'hidden' : 'flex'} flex-col gap-3`}>
-            <h3 className='font-bold text-[20px] border-b border-b-orange-400'>Lista de afazeres de hoje</h3>
+            <h3 className='font-bold text-[20px] border-b border-b-orange-400'>Lista de tarefas de hoje</h3>
             {allActivities.length === 0 ? (
                 <p className='text-[14px] text-center mt-10'>
                     Que tal adicionar alguns itens à sua lista?

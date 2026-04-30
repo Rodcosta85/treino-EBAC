@@ -1,0 +1,122 @@
+[
+    {
+        "id": "1",
+        "titulo": "bolsa",
+        "descricao": "uma bolsa marrom linda",
+        "quantidadeDisponivel": "5",
+        "preco": "189.90",
+        "emDestaque": true
+    },
+    {
+        "id": "2",
+        "titulo": "mochila executiva",
+        "descricao": "mochila de couro preta com compartimento para notebook",
+        "quantidadeDisponivel": "12",
+        "preco": "349.00",
+        "emDestaque": true
+    },
+    {
+        "id": "3",
+        "titulo": "carteira slim",
+        "descricao": "carteira compacta em couro legítimo cor café",
+        "quantidadeDisponivel": "25",
+        "preco": "79.90",
+        "emDestaque": false
+    },
+    {
+        "id": "4",
+        "titulo": "bolsa de ombro",
+        "descricao": "bolsa casual em lona bege com detalhes em metal",
+        "quantidadeDisponivel": "8",
+        "preco": "120.00",
+        "emDestaque": false
+    },
+    {
+        "id": "5",
+        "titulo": "mala de viagem",
+        "descricao": "mala de bordo rígida com rodas 360 graus",
+        "quantidadeDisponivel": "3",
+        "preco": "450.00",
+        "emDestaque": true
+    },
+    {
+        "id": "6",
+        "titulo": "pochete moderna",
+        "descricao": "pochete esportiva impermeável na cor grafite",
+        "quantidadeDisponivel": "15",
+        "preco": "65.00",
+        "emDestaque": false
+    },
+    {
+        "id": "7",
+        "titulo": "bolsa transversal",
+        "descricao": "bolsa pequena transversal em camurça azul marinho",
+        "quantidadeDisponivel": "10",
+        "preco": "98.50",
+        "emDestaque": false
+    },
+    {
+        "id": "8",
+        "titulo": "necessaire de luxo",
+        "descricao": "necessaire organizadora com divisórias internas",
+        "quantidadeDisponivel": "20",
+        "preco": "55.00",
+        "emDestaque": false
+    },
+    {
+        "id": "9",
+        "titulo": "bolsa tote",
+        "descricao": "bolsa grande estilo sacola em material ecológico",
+        "quantidadeDisponivel": "7",
+        "preco": "145.00",
+        "emDestaque": true
+    },
+    {
+        "id": "10",
+        "titulo": "clutch de festa",
+        "descricao": "bolsa de mão com acabamento em cetim e brilho",
+        "quantidadeDisponivel": "4",
+        "preco": "210.00",
+        "emDestaque": true
+    },
+    {
+        "id": "11",
+        "titulo": "porta cartões",
+        "descricao": "porta cartões minimalista em alumínio e couro",
+        "quantidadeDisponivel": "30",
+        "preco": "45.00",
+        "emDestaque": false
+    },
+    {
+        "id": "12",
+        "titulo": "bolsa de palha",
+        "descricao": "bolsa artesanal redonda ideal para praia ou passeio",
+        "quantidadeDisponivel": "6",
+        "preco": "130.00",
+        "emDestaque": false
+    },
+    {
+        "id": "13",
+        "titulo": "pasta carteiro",
+        "descricao": "pasta transversal vintage em couro envelhecido",
+        "quantidadeDisponivel": "9",
+        "preco": "280.00",
+        "emDestaque": true
+    },
+    {
+        "id": "14",
+        "titulo": "mochila infantil",
+        "descricao": "mochila colorida com estampas lúdicas e ergonômica",
+        "quantidadeDisponivel": "14",
+        "preco": "115.00",
+        "emDestaque": false
+    },
+    {
+        "id": "15",
+        "titulo": "bolsa térmica",
+        "descricao": "bolsa para marmita com revestimento isolante",
+        "quantidadeDisponivel": "18",
+        "preco": "42.00",
+        "emDestaque": false
+    }
+]
