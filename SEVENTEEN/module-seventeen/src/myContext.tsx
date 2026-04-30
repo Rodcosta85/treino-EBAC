@@ -1,24 +1,46 @@
-import { useState, createContext, useContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import type { ReactNode } from "react";
 import activities from './activities.json'
 import type { activityTypes } from "./types";
 
 interface MyContextType {
     allActivities: activityTypes[],
-    selectedActivity: activityTypes | null;
+    checkbox: boolean,
+    deletedCount: number,
     inputVal: string
-    setSelectedActivity: (activity: activityTypes | null) => void,
+    setInputVal: (e: string) => void,
     addEntry: (newEntry: activityTypes) => void,
-    removeEntry: (entry: activityTypes) => void,
-    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    removeEntry: (id: number) => void,
+    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    handleCheckbox: () => void,
+    resetData: () => void,
 }
 
 export const MyDataContext = createContext<MyContextType | undefined>(undefined);
 
 export const MyContextStates = ({ children }: { children: ReactNode }) => {
-    const [allActivities, setAllActivities] = useState<activityTypes[]>(activities);
-    const [selectedActivity, setSelectedActivity] = useState<activityTypes | null>(null);
+    const [allActivities, setAllActivities] = useState<activityTypes[]>(() => {
+        const saved = localStorage.getItem("my_activities");
+        return saved ? JSON.parse(saved) : activities;
+    });
     const [inputVal, setInputVal] = useState<string>("");
+    const [checkbox, setCheckbox] = useState<boolean>(false);
+    const [deletedCount, setDeletedCount] = useState<number>(() => {
+        const savedCount = localStorage.getItem("deleted_count");
+        return savedCount ? parseInt(savedCount) : 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("my_activities", JSON.stringify(allActivities));
+    }, [allActivities]);
+
+    useEffect(() => {
+        localStorage.setItem("deleted_count", deletedCount.toString());
+    }, [deletedCount]);
+
+    const handleCheckbox = () => {
+        setCheckbox(prevState => !prevState);
+    }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputVal(e.target.value);
@@ -29,19 +51,28 @@ export const MyContextStates = ({ children }: { children: ReactNode }) => {
         setAllActivities((prev) => [...prev, newEntry]);
     };
 
-    const removeEntry = (entry: activityTypes) => {
-        setAllActivities
+    const removeEntry = (id: number) => {
+        setAllActivities((prev) => prev.filter(act => act.id !== id));
+        setDeletedCount((prev) => prev + 1);
+    };
+
+    const resetData = () => {
+        setAllActivities([])
+        setDeletedCount(0)
     }
 
     return (
         <MyDataContext.Provider value={{
             allActivities: allActivities,
-            selectedActivity: selectedActivity,
+            deletedCount: deletedCount,
+            checkbox: checkbox,
             inputVal: inputVal,
-            setSelectedActivity: setSelectedActivity,
+            setInputVal: setInputVal,
             addEntry: addEntry,
             removeEntry: removeEntry,
-            handleInputChange: handleInputChange
+            handleInputChange: handleInputChange,
+            handleCheckbox: handleCheckbox,
+            resetData: resetData,
         }}>
             {children}
         </MyDataContext.Provider>
