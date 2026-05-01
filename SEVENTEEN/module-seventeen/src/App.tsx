@@ -1,9 +1,7 @@
-import { useEffect, useMemo } from 'react'
 import { useActivities } from './myContext';
 import Header from './components/layout/Header';
 import List from './components/List';
 import InsertionForm from './components/InsertionForm';
-
 
 function App() {
 
@@ -16,7 +14,6 @@ function App() {
   const totalEver = allActivities.length + deletedCount;
   const progressPercent = totalEver === 0 ? 0 : (deletedCount / totalEver) * 100;
   const roundNumber = Math.floor(progressPercent)
-
 
   return (
     <div className='flex flex-col justify-start items-center gap-12.5
