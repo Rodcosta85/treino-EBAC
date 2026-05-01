@@ -33,7 +33,7 @@ const List = () => {
     ])
 
     return (
-        <div className='flex flex-col gap-6'>
+        <div className='flex flex-col gap-6 md:w-[50%] lg:w-[50%]'>
             <h3 className='font-bold text-[20px] border-b border-b-orange-400'>Lista de tarefas de hoje</h3>
             <div className='flex justify-between gap-1 border-2 border-white rounded-xl p-1'>
                 {tabsInfo.map((item, index) => (
@@ -85,7 +85,7 @@ const List = () => {
                     return (
                         <button
                             key={item.id}
-                            className='flex justify-between items-center 
+                            className='text-center
                         bg-green-700 p-2.5 rounded-md relative'>
                             <h4>{item.title}</h4>
                         </button>
