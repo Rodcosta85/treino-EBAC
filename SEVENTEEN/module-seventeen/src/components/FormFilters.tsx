@@ -1,20 +1,20 @@
+import { useState } from 'react';
 import React from 'react'
-import { useActivities } from './../myContext';
+import { useActivities } from '../myContext';
 import Add from './../assets/add.svg'
+
+interface tabsProps {
+    id: number,
+    title: string,
+}
 
 const InsertionForm = () => {
 
     const {
         inputVal,
-        showAll,
-        showFinished,
-        showPending,
         addEntry,
         setInputVal,
         handleInputChange,
-        setShowAll,
-        setShowFinished,
-        setShowPending,
     } = useActivities()
 
     const handleSubmit = (e: React.SubmitEvent) => {
@@ -51,36 +51,6 @@ const InsertionForm = () => {
                     <img src={Add} alt="" />
                 </button>
             </form>
-
-            <div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="todos"
-                        checked={showAll}
-                        onChange={e => setShowAll(e.target.checked)}
-                    />
-                    <label htmlFor="todos">Todos</label>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="pendentes"
-                        checked={showPending}
-                        onChange={e => setShowPending(e.target.checked)}
-                    />
-                    <label htmlFor="pendentes">Pendentes</label>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        id="concluidas"
-                        checked={showFinished}
-                        onChange={e => setShowFinished(e.target.checked)}
-                    />
-                    <label htmlFor="concluidas">Concluídas</label>
-                </div>
-            </div>
         </div>
     )
 }

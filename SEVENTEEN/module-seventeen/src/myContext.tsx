@@ -5,7 +5,7 @@ import type { activityTypes } from "./types";
 interface MyContextType {
     allActivities: activityTypes[],
     finishedActivities: activityTypes[],
-    checkbox: boolean,
+    activeTab: number,
     deletedCount: number,
     inputVal: string,
     showAll: boolean,
@@ -14,11 +14,11 @@ interface MyContextType {
     setShowAll: (e: boolean) => void,
     setShowPending: (e: boolean) => void,
     setShowFinished: (e: boolean) => void,
+    setActiveTab: (index: number) => void
     setInputVal: (e: string) => void,
     addEntry: (newEntry: activityTypes) => void,
     removeEntry: (id: number) => void,
     handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    handleCheckbox: () => void,
     resetData: () => void,
 }
 
@@ -34,7 +34,7 @@ export const MyContextStates = ({ children }: { children: ReactNode }) => {
         return saved ? JSON.parse(saved) : [];
     });
     const [inputVal, setInputVal] = useState<string>("");
-    const [checkbox, setCheckbox] = useState<boolean>(false);
+    const [activeTab, setActiveTab] = useState<number>(1);
     const [deletedCount, setDeletedCount] = useState<number>(() => {
         const savedCount = localStorage.getItem("deleted_count");
         return savedCount ? parseInt(savedCount) : 0;
@@ -55,10 +55,6 @@ export const MyContextStates = ({ children }: { children: ReactNode }) => {
     useEffect(() => {
         localStorage.setItem("deleted_count", deletedCount.toString());
     }, [deletedCount]);
-
-    const handleCheckbox = () => {
-        setCheckbox(prevState => !prevState);
-    }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputVal(e.target.value);
@@ -84,20 +80,20 @@ export const MyContextStates = ({ children }: { children: ReactNode }) => {
 
     return (
         <MyDataContext.Provider value={{
-            allActivities: allActivities,
-            deletedCount: deletedCount,
-            checkbox: checkbox,
+            allActivities,
+            deletedCount,
+            activeTab,
             inputVal: inputVal,
             finishedActivities,
-            setInputVal: setInputVal,
-            addEntry: addEntry,
-            removeEntry: removeEntry,
-            handleInputChange: handleInputChange,
-            handleCheckbox: handleCheckbox,
-            resetData: resetData,
             showAll,
             showPending,
             showFinished,
+            setInputVal,
+            addEntry,
+            setActiveTab,
+            removeEntry,
+            handleInputChange,
+            resetData,
             setShowAll,
             setShowPending,
             setShowFinished,

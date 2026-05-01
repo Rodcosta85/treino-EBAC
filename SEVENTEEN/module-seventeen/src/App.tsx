@@ -1,7 +1,7 @@
 import { useActivities } from './myContext';
 import Header from './components/layout/Header';
 import List from './components/List';
-import InsertionForm from './components/InsertionForm';
+import FormFilters from './components/FormFilters';
 
 function App() {
 
@@ -46,16 +46,8 @@ function App() {
             />
           </div>
         </div>
-        {roundNumber === 100 ?
-          <button 
-          onClick={resetData}
-          className='flex justify-center items-center w-full pt-2 pb-2 bg-orange-400 rounded-md cursor-pointer'>
-            começar novamente
-          </button>
-          :
-          <InsertionForm />
-        }
-        <List roundNumber={roundNumber} />
+        <FormFilters />
+        <List />
       </div>
     </div>
   )
