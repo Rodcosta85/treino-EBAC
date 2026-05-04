@@ -1,4 +1,5 @@
-import React from 'react'
+import { useState } from 'react'
+import type { MouseEvent } from 'react';
 import styled from 'styled-components';
 
 interface ProdutosTypes {
@@ -96,6 +97,13 @@ const PrecoQuantidade = styled.div`
 `;
 
 const CardProduto: React.FC<CardProps> = ({ item }) => {
+
+    const [change, setChange] = useState<boolean>(false);
+    const handleButtonChange = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setChange(prevState => !prevState)
+    }
+
     return (
         <CardContainer>
             <h1>{item.titulo}</h1>
@@ -104,8 +112,8 @@ const CardProduto: React.FC<CardProps> = ({ item }) => {
                 <h2>R$ {item.preco}</h2>
                 <span className="estoque">Estoque: {item.quantidadeDisponivel}</span>
             </PrecoQuantidade>
-            <MyButton $adicionado={item.emDestaque}>
-                {item.emDestaque ? 'Adicionado' : 'Adicionar ao carrinho'}
+            <MyButton $adicionado={change} onClick={handleButtonChange}>
+                {change ? 'Adicionado' : 'Adicionar ao carrinho'}
             </MyButton>
         </CardContainer>
     );
