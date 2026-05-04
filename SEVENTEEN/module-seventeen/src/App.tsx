@@ -9,7 +9,6 @@ function App() {
   const {
     allActivities,
     deletedCount,
-    resetData,
   } = useActivities();
 
   const totalEver = allActivities.length + deletedCount;
