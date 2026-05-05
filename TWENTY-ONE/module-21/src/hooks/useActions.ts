@@ -2,10 +2,10 @@ import useBooks from "./useBooks";
 
 export const useActions = () => {
 
-    const { 
+    const {
         setTitle,
         setAuthor,
-        setStatus
+        setBgImg,
     } = useBooks()
 
 
@@ -17,8 +17,21 @@ export const useActions = () => {
         setAuthor(value)
     }
 
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setBgImg(reader.result as string);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     return {
         handleTitleChange,
-        handleAuthorChange
+        handleAuthorChange,
+        handleImageUpload
     }
 }

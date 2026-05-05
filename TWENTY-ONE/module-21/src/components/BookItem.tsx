@@ -1,8 +1,54 @@
-import React from 'react'
+import useBooks from "../hooks/useBooks";
+import type { BookTypes } from "../types/bookTypes"
+import Close from './../assets/close.svg'
 
-const BookItem = () => {
+interface BookItemProps {
+  item: BookTypes;
+}
+
+const BookItem: React.FC<BookItemProps> = ({ item }) => {
+
+  const { removeBook } = useBooks()
+
   return (
-    <div>BookItem</div>
+    <div
+      key={item.id}
+      className="relative flex flex-col justify-end h-100 rounded-2xl overflow-visible"
+    >
+      <button
+      onClick={() => removeBook(item.id)}
+      className="absolute top-0 right-0 z-99
+      flex justify-center items-center
+      w-8 h-8 
+      rounded-tr-xl rounded-bl-xl
+      bg-red-600 text-white
+      cursor-pointer">
+        <img src={Close} alt="" />
+      </button>
+      <img
+        src={item.bgImg}
+        alt=""
+        className="absolute inset-0 w-full rounded-tr-2xl rounded-tl-2xl object-cover"
+      />
+      <div className="absolute transition-colors" />
+      <div className="relative z-10
+      flex flex-col justify-between gap-3
+      min-h-30.5 pt-3 
+      bg-white">
+        <div>
+          <h2 className="font-bold text-xl leading-tight pl-4 pr-4">{item.title}</h2>
+          <p className="text-sm text-gray-600 pl-4 pr-4">{item.author}</p>
+        </div>
+
+        <p className={`w-full text-sm text-center text-white font-semibold rounded-bl-md rounded-br-md p-1 self-center 
+        ${item.status === "Não Lido"
+            ? "bg-red-500"
+            : "bg-green-800"
+          }`}>
+          {item.status}
+        </p>
+      </div>
+    </div>
   )
 }
 
