@@ -34,13 +34,14 @@ const BookItem: React.FC<BookItemProps> = ({ item }) => {
       <div className="relative z-10
       flex flex-col justify-between gap-3
       min-h-30.5 pt-3 
+      rounded-bl-2xl rounded-br-2xl
       bg-white">
         <div>
           <h2 className="font-bold text-xl leading-tight pl-4 pr-4">{item.title}</h2>
           <p className="text-sm text-gray-600 pl-4 pr-4">{item.author}</p>
         </div>
 
-        <p className={`w-full text-sm text-center text-white font-semibold rounded-bl-md rounded-br-md p-1 self-center 
+        <p className={`w-full text-sm text-center text-white font-semibold rounded-bl-2xl rounded-br-2xl p-1 self-center 
         ${item.status === "Não Lido"
             ? "bg-red-500"
             : "bg-green-800"
