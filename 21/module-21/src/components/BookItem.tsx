@@ -11,12 +11,9 @@ const BookItem: React.FC<BookItemProps> = ({ item }) => {
   const { removeBook } = useBooks()
 
   return (
-    <div
-      key={item.id}
-      className="relative flex flex-col justify-end h-100 rounded-2xl overflow-visible"
-    >
+    <div className="relative flex flex-col justify-end h-100 rounded-2xl overflow-visible">
       <button
-      onClick={() => removeBook(item.id)}
+      onClick={() => item._id !== undefined && removeBook(item._id)}
       className="absolute top-0 right-0 z-99
       flex justify-center items-center
       w-8 h-8 

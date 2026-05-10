@@ -26,12 +26,11 @@ const BookForm = () => {
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault()
     addBook({
-      id: Date.now(),
-      title: title,
-      author: author,
-      status: status,
-      bgImg: bgImg
-    })
+      title: "Test",
+      author: "Test",
+      status: "Test",
+      bgImg: "Test"
+    } as any);
     setTitle("")
     setAuthor("")
   }

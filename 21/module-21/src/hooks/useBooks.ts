@@ -1,5 +1,7 @@
+import axios from 'axios';
 import { create } from 'zustand'
 import type { BookTypes } from '../types/bookTypes';
+import BASE_URL from './../services/api'
 
 type ReadNotRead = 'Lido' | 'Não Lido'
 
@@ -26,12 +28,12 @@ interface BookTypeStates {
     addBook: (newBook: BookTypes) => void,
 
     // remover item
-    removeBook: (id: number) => void,
+    removeBook: (id: string) => void,
 
     // botão de acionar o form
     setPopupTrigger: (popupTrigger: boolean) => void,
 
-
+    fetchBooks: () => Promise<void>
 }
 
 const useBooks = create<BookTypeStates>((set) => ({
@@ -46,19 +48,40 @@ const useBooks = create<BookTypeStates>((set) => ({
     setAuthor: (newValue: string) => set({ author: newValue }),
     setChangeStatus: (type) => set({ status: type }),
     setBgImg: (newValue: string) => set({ bgImg: newValue }),
-    addBook: (item: BookTypes) => set((state) => ({
-        items: [...state.items, item],
-    })),
-    removeBook: (id: number) => set((state) => {
-        const itemToDelete = state.items.find((item) => item.id === id);
+    setPopupTrigger: () => set((state) => ({ popupTrigger: !state.popupTrigger })),
+
+    addBook: async (newBook: BookTypes) => {
+        try {
+            const response = await axios.post<BookTypes>(BASE_URL, newBook, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+            });
+
+            set((state) => ({
+                items: [...state.items, response.data]
+            }));
+        } catch (error) {
+            console.error("Error adding book:", error);
+        }
+    },
+
+    removeBook: (id: string) => set((state) => {
+        const itemToDelete = state.items.find((item) => item._id === id);
         if (!itemToDelete) return state;
-        const remainingItems = state.items.filter((item) => item.id !== id);
+        const remainingItems = state.items.filter((item) => item._id !== id);
         return {
             items: remainingItems,
         };
     }),
-    setPopupTrigger: () => set((state) => ({ popupTrigger: !state.popupTrigger })),
 
+    fetchBooks: async () => {
+        try {
+            const response = await axios.get<BookTypes[]>(BASE_URL);
+            set({ items: response.data });
+        } catch (error) {
+            console.error("Axios fetch error:", error);
+        }
+    },
 }))
 
 export default useBooks
