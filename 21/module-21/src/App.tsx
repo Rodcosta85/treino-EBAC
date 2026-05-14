@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import useBooks from './hooks/useBooks'
 import BookForm from './components/BookForm'
 import BookList from './components/BookList'
@@ -6,7 +7,11 @@ import FormIconWhite from './assets/form-icon-white.svg'
 
 function App() {
 
-  const { popupTrigger, setPopupTrigger } = useBooks()
+  const { popupTrigger, setPopupTrigger, fetchBooks } = useBooks()
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   return (
     <div className="flex flex-col gap-8

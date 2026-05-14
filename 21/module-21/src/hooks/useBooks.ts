@@ -54,7 +54,7 @@ const useBooks = create<BookTypeStates>((set) => ({
         try {
             const response = await axios.post<BookTypes>(BASE_URL, newBook, {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
             });
 
             set((state) => ({
@@ -65,14 +65,19 @@ const useBooks = create<BookTypeStates>((set) => ({
         }
     },
 
-    removeBook: (id: string) => set((state) => {
-        const itemToDelete = state.items.find((item) => item._id === id);
-        if (!itemToDelete) return state;
-        const remainingItems = state.items.filter((item) => item._id !== id);
-        return {
-            items: remainingItems,
-        };
-    }),
+    removeBook: async (id: string) => {
+        try {
+            await axios.delete<BookTypes>(`${BASE_URL}/${id}`, {
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            set((state) => ({
+                items: state.items.filter(item => item._id !== id)
+            }));
+        } catch (error) {
+            console.error("Error deleting book:", error);
+        }
+    },
 
     fetchBooks: async () => {
         try {

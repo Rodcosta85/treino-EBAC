@@ -26,10 +26,10 @@ const BookForm = () => {
   const handleSubmit = (e: React.SubmitEvent) => {
     e.preventDefault()
     addBook({
-      title: "Test",
-      author: "Test",
-      status: "Test",
-      bgImg: "Test"
+      title,
+      author,
+      status,
+      bgImg,
     } as any);
     setTitle("")
     setAuthor("")
@@ -43,7 +43,7 @@ const BookForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className='absolute right-0 top-15 z-99
+      className='absolute right-0 top-15 z-99999999
       flex flex-col gap-8 
       w-90 p-4 
       rounded-md 
