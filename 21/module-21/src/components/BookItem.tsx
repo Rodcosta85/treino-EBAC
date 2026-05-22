@@ -23,7 +23,7 @@ const BookItem: React.FC<BookItemProps> = ({ item }) => {
         <img src={Close} alt="" />
       </button>
       <img
-        src={item.bgImg}
+        src={item.bgImg || undefined}
         alt=""
         className="absolute inset-0 w-full rounded-tr-2xl rounded-tl-2xl object-cover"
       />
