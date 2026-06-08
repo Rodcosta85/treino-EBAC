@@ -1,13 +1,11 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-deep-ocean: #1A365D;
+  --color-terracota: #E07A5F;
+  --color-clear-sky: #4EA8DE;
+  --color-warm-sand: #F4F1DE;
+  --color-off-white: #FAFAFA;
+  --color-charcoal: #2B2D42;
+  --color-light-charcoal: #6C757D;
 }
 
 html {
