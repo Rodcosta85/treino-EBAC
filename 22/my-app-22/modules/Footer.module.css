@@ -1,0 +1,74 @@
+.footerSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.774);
+}
+
+.mainDivFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 56px;
+    width: 100%;
+    padding: 24px 20px;
+}
+
+@media screen and (min-width: 500px) {
+    .mainDivFooter {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mainDivFooter {
+        flex-direction: row;
+        width: 960px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mainDivFooter {
+        flex-direction: row;
+        width: 1280px;
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+}
+
+.logoPrincipalImg {
+    width: 85px;
+    height: 100px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+    .navigation {
+        align-items: flex-end;
+    }
+}
+
+.navigationItem {
+    color: var(--color-warm-sand);
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 250ms ease-in-out;
+}
+
+.navigationItem:hover {
+    color: var(--color-terracota);
+}
+
